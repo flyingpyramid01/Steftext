@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Reading for Potatoes Only</title>
+    <style>
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        #output {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Speed Reading for Potatoes Only</h1>
+    <textarea id="inputText" placeholder="Paste your text here Stef"></textarea><br>
+    <button onclick="boldFirstThreeLetters()">Click for Tater Magic</button>
+    
+    <h3>🥔</h3>
+    <div id="output"></div>
+
+    <script>
+        function boldFirstThreeLetters() {
+            let inputText = document.getElementById("inputText").value;
+            let words = inputText.split(/\s+/);
+            let formattedText = words.map(word => {
+                if (word.length >= 3) {
+                    return '<b>' + word.substring(0, 3) + '</b>' + word.substring(3);
+                }
+                return word;
+            }).join(" ");
+            document.getElementById("output").innerHTML = formattedText;
+        }
+    </script>
+
+</body></html>
